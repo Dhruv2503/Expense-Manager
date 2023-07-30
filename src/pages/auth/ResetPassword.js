@@ -9,7 +9,7 @@ const ResetPassword = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  let [searchParams, setSearchParams] = useSearchParams();
+  let searchParams= useSearchParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

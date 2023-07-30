@@ -56,7 +56,7 @@ const CreateExpense = () => {
       const docSnap = await getDoc(docRef);
       const temp=docSnap.data().name;
 
-      const result = await addDoc(collection(db, "expenses"), {
+      await addDoc(collection(db, "expenses"), {
         name: name,
         description,
         category,

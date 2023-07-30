@@ -15,7 +15,6 @@ const EditExpense = () => {
   const navigate = useNavigate();
   const {id}=useParams();
   
-  const [expense,setExpense]=useState();
   const [values, setValues] = useState({
     name: "",
     date: "",
@@ -26,26 +25,25 @@ const EditExpense = () => {
     loading: "",
   });
 
-  useEffect(()=>{
-    const getExpense=async ()=>{
-        const docRef = doc(db, "expenses", id);
-        const docSnap = await getDoc(docRef);
-        if(docSnap.exists()){
-            setExpense(docSnap.data());
-            console.log(docSnap.data())
-            setValues({ ...values,
-             error: "",
-             name:docSnap.data().name,
-             date:docSnap.data().date,
-             category:docSnap.data().category,
-             description:docSnap.data().description,
-             amount:docSnap.data().amount,
-             publishedAt: Timestamp.fromDate(new Date()),
-            });
-        }
-        console.log(docSnap.data())
+  const getExpense=async ()=>{
+    const docRef = doc(db, "expenses", id);
+    const docSnap = await getDoc(docRef);
+    if(docSnap.exists()){
+        setValues({ ...values,
+        error: "",
+        name:docSnap.data().name,
+        date:docSnap.data().date,
+        category:docSnap.data().category,
+        description:docSnap.data().description,
+        amount:docSnap.data().amount,
+        publishedAt: Timestamp.fromDate(new Date()),
+        });
     }
+}
+  useEffect(()=>{
     getExpense();
+   // eslint-disable-next-line
+   // eslint-disable-next-line
   },[])
 
   const {

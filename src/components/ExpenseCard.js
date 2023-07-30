@@ -3,10 +3,9 @@ import Moment from "react-moment";
 import { auth } from '../firebaseConfig';
 import {FaTrashAlt} from "react-icons/fa";
 import {MdOutlineEdit} from 'react-icons/md'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const ExpenseCard = (props) => {
-  const Navigate=useNavigate()
   const {
     name,
     category,
